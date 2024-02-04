@@ -7,13 +7,21 @@ public partial class ASdgaksdg : TextureRect
         var itemBeingDragged = new TextureRect
         {
             Texture = Texture,
-            Size = new Vector2(200, 200),
+            CustomMinimumSize = new Vector2(200, 200),
+            ExpandMode = ExpandModeEnum.IgnoreSize,
         };
 
+        SetDragPreview(CenteredOnMouse(itemBeingDragged));
+
+        return this;
+    }
+
+    private static Control CenteredOnMouse(TextureRect itemBeingDragged)
+    {
         var control = new Control();
         control.AddChild(itemBeingDragged);
-        itemBeingDragged.Position = -0.5f * itemBeingDragged.Size;
-        SetDragPreview(control);
+
+        itemBeingDragged.Position = -0.5f * itemBeingDragged.CustomMinimumSize;
 
         return control;
     }
