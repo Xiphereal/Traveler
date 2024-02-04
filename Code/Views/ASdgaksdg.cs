@@ -1,5 +1,7 @@
 using Godot;
 
+namespace Views;
+
 public partial class ASdgaksdg : TextureRect
 {
     public override Variant _GetDragData(Vector2 atPosition)
