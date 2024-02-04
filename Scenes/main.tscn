@@ -34,3 +34,33 @@ layout_mode = 2
 
 [node name="Slot4" parent="UI/Inventory" instance=ExtResource("2_jrxf2")]
 layout_mode = 2
+
+[node name="Shop" type="Panel" parent="UI"]
+offset_left = 48.0
+offset_top = -6.0
+offset_right = 349.0
+offset_bottom = 218.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Shop"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="UI/Shop/VBoxContainer"]
+layout_mode = 2
+text = "Shop"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Shop/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Food" parent="UI/Shop/VBoxContainer/HBoxContainer" instance=ExtResource("2_jrxf2")]
+layout_mode = 2
+
+[node name="Water" parent="UI/Shop/VBoxContainer/HBoxContainer" instance=ExtResource("2_jrxf2")]
+layout_mode = 2
