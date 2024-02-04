@@ -12,7 +12,7 @@ public partial class ASdgaksdg : TextureRect
         var itemBeingDragged = new TextureRect
         {
             Texture = Texture,
-            CustomMinimumSize = new Vector2(200, 200),
+            CustomMinimumSize = new Vector2(100, 100),
             ExpandMode = ExpandModeEnum.IgnoreSize,
         };
 
