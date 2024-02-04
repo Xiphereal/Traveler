@@ -4,6 +4,9 @@ public partial class ASdgaksdg : TextureRect
 {
     public override Variant _GetDragData(Vector2 atPosition)
     {
+        if (Texture is null)
+            return new Variant();
+
         var itemBeingDragged = new TextureRect
         {
             Texture = Texture,
