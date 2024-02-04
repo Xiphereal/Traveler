@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://capq7s5s3an5v"]
+[gd_scene load_steps=3 format=3 uid="uid://capq7s5s3an5v"]
 
 [ext_resource type="Texture2D" uid="uid://ciay8tq8ilkfx" path="res://Assets/Item1.png" id="1_nf0ww"]
+[ext_resource type="Script" path="res://Code/Views/ASdgaksdg.cs" id="2_w3pve"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -35,6 +36,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_nf0ww")
 expand_mode = 1
+script = ExtResource("2_w3pve")
 
 [node name="Slot2" type="Panel" parent="UI/Inventory"]
 custom_minimum_size = Vector2(200, 200)
