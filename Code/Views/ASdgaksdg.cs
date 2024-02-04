@@ -13,7 +13,7 @@ public partial class ASdgaksdg : TextureRect
 
         SetDragPreview(CenteredOnMouse(itemBeingDragged));
 
-        return this;
+        return itemBeingDragged.Texture;
     }
 
     private static Control CenteredOnMouse(TextureRect itemBeingDragged)
@@ -28,11 +28,11 @@ public partial class ASdgaksdg : TextureRect
 
     public override bool _CanDropData(Vector2 atPosition, Variant data)
     {
-        return base._CanDropData(atPosition, data);
+        return true;
     }
 
     public override void _DropData(Vector2 atPosition, Variant data)
     {
-        base._DropData(atPosition, data);
+        Texture = (Texture2D)data;
     }
 }
