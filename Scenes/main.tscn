@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://capq7s5s3an5v"]
+[gd_scene load_steps=5 format=3 uid="uid://capq7s5s3an5v"]
 
 [ext_resource type="PackedScene" uid="uid://bj5niouof2mjk" path="res://Scenes/filled_slot.tscn" id="1_1cmjx"]
 [ext_resource type="PackedScene" uid="uid://bsnwhqpddorc" path="res://Scenes/slot.tscn" id="2_jrxf2"]
+[ext_resource type="Texture2D" uid="uid://bqox420clnr8e" path="res://Assets/Food.png" id="3_a3l1f"]
+[ext_resource type="Texture2D" uid="uid://cmc0oigynjrhd" path="res://Assets/Water.png" id="4_qvthr"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -62,5 +64,14 @@ alignment = 1
 [node name="Food" parent="UI/Shop/VBoxContainer/HBoxContainer" instance=ExtResource("2_jrxf2")]
 layout_mode = 2
 
+[node name="Item" parent="UI/Shop/VBoxContainer/HBoxContainer/Food" index="0"]
+texture = ExtResource("3_a3l1f")
+
 [node name="Water" parent="UI/Shop/VBoxContainer/HBoxContainer" instance=ExtResource("2_jrxf2")]
 layout_mode = 2
+
+[node name="Item" parent="UI/Shop/VBoxContainer/HBoxContainer/Water" index="0"]
+texture = ExtResource("4_qvthr")
+
+[editable path="UI/Shop/VBoxContainer/HBoxContainer/Food"]
+[editable path="UI/Shop/VBoxContainer/HBoxContainer/Water"]
