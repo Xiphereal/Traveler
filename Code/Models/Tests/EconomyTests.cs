@@ -3,7 +3,7 @@ using Xunit;
 
 namespace Models.Tests
 {
-    public class TravelerTests
+    public class EconomyTests
     {
         [Fact]
         public void Starts_without_money()
@@ -41,6 +41,14 @@ namespace Models.Tests
             traveler.Spend(coins: 2);
 
             traveler.Coins.Should().Be(5 - 2);
+        }
+
+
+        [Fact]
+        public void Supplies_have_cost()
+        {
+            Item.Water().Cost.Should().BeGreaterThan(0);
+            Item.Food().Cost.Should().BeGreaterThan(0);
         }
     }
 }
