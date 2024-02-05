@@ -27,21 +27,20 @@ namespace Models.Tests
             var traveler = new Traveler();
 
             traveler.Earn(coins: 1);
-            traveler.Earn(coins: 1);
-            traveler.Earn(coins: 1);
+            traveler.Earn(coins: 2);
 
-            traveler.Coins.Should().Be(1 + 1 + 1);
+            traveler.Coins.Should().Be(1 + 2);
         }
 
         [Fact]
         public void Can_spend_coins()
         {
             var traveler = new Traveler();
-            traveler.Earn(coins: 1);
+            traveler.Earn(coins: 5);
 
-            traveler.Spend(1);
+            traveler.Spend(coins: 2);
 
-            traveler.Coins.Should().Be(0);
+            traveler.Coins.Should().Be(5 - 2);
         }
     }
 }
