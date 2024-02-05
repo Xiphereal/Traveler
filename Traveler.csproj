@@ -1,4 +1,4 @@
-<Project Sdk="Godot.NET.Sdk/4.2.1">
+﻿<Project Sdk="Godot.NET.Sdk/4.2.1">
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
 		<TargetFramework Condition=" '$(GodotTargetPlatform)' == 'android' ">net7.0</TargetFramework>
@@ -11,6 +11,9 @@
 	<ItemGroup>
 		<Compile Remove="Code\Models\**" />
 		<EmbeddedResource Remove="Code\Models\**" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="Code\Models\Models.csproj" />
 	</ItemGroup>
 	<!-- Due to a Godot design decision, the Godot csproj entrypoint must be located at the same 
 		 location that the project.godot, that being the root level. 

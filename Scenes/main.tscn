@@ -52,6 +52,9 @@ texture = ExtResource("4_qvthr")
 [node name="Name" parent="UI/Shop/VBoxContainer/HBoxContainer/ShopItem2/VBoxContainer/ItemInfo" index="0"]
 text = "Water:"
 
+[node name="Cost" parent="UI/Shop/VBoxContainer/HBoxContainer/ShopItem2/VBoxContainer/ItemInfo" index="2"]
+supply = 1
+
 [node name="Backpack" type="PanelContainer" parent="UI"]
 anchors_preset = 8
 anchor_left = 0.5

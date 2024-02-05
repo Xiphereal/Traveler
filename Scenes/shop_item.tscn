@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://byllxnc6kifvd"]
+[gd_scene load_steps=4 format=3 uid="uid://byllxnc6kifvd"]
 
 [ext_resource type="PackedScene" uid="uid://bsnwhqpddorc" path="res://Scenes/slot.tscn" id="1_cyig5"]
 [ext_resource type="Texture2D" uid="uid://k31uhvc4l4mn" path="res://Assets/Coin.png" id="2_5o6s4"]
+[ext_resource type="Script" path="res://Code/Views/Item.cs" id="2_ne353"]
 
-[node name="PanelContainer" type="PanelContainer"]
+[node name="ShopItem" type="PanelContainer"]
 offset_right = 40.0
 offset_bottom = 40.0
 
@@ -32,8 +33,9 @@ layout_mode = 2
 layout_mode = 2
 text = "<cost>"
 horizontal_alignment = 1
+script = ExtResource("2_ne353")
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/ItemInfo"]
+[node name="CoinIcon" type="TextureRect" parent="VBoxContainer/ItemInfo"]
 custom_minimum_size = Vector2(22, 22)
 layout_mode = 2
 texture = ExtResource("2_5o6s4")
