@@ -77,5 +77,17 @@ namespace Models.Tests
 
             traveler.Coins.Should().Be(startingCoins);
         }
+
+        [Fact]
+        public void Traveler_can_be_asked_if_they_can_affort_something()
+        {
+            new Traveler(startingWith: Item.Water().Cost)
+                .CanAfford(Item.Water())
+                .Should().BeTrue();
+
+            new Traveler(startingWith: 1)
+                .CanAfford(Item.CostlyOne())
+                .Should().BeFalse();
+        }
     }
 }

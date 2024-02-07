@@ -21,8 +21,13 @@
 
         public void Buy(Item item)
         {
-            if (item.Cost <= Coins)
+            if (CanAfford(item))
                 Coins -= item.Cost;
+        }
+
+        public bool CanAfford(Item item)
+        {
+            return item.Cost <= Coins;
         }
     }
 }
