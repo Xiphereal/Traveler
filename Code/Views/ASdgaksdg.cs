@@ -1,9 +1,25 @@
 using Godot;
+using Models;
+using System;
 
 namespace Views;
 
 public partial class ASdgaksdg : TextureRect
 {
+    [Export]
+    private Supply supply;
+    private Models.Item item;
+
+    public override void _Ready()
+    {
+        item = supply switch
+        {
+            Supply.Food => Models.Item.Food(),
+            Supply.Water => Models.Item.Water(),
+            _ => throw new ArgumentException(),
+        };
+    }
+
     public override Variant _GetDragData(Vector2 atPosition)
     {
         if (Texture is null)
@@ -33,11 +49,15 @@ public partial class ASdgaksdg : TextureRect
 
     public override bool _CanDropData(Vector2 atPosition, Variant data)
     {
-        return true;
+        return FindTraveler().CanAfford(item);
     }
+
+    private Traveler FindTraveler() =>
+        GetNode<TravelerView>("/root/Node2D/UI/Backpack").Traveler;
 
     public override void _DropData(Vector2 atPosition, Variant data)
     {
+        FindTraveler().Buy(item);
         SwapItemWith(data);
     }
 
