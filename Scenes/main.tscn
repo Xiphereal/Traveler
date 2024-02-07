@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://capq7s5s3an5v"]
 
-[ext_resource type="PackedScene" uid="uid://bj5niouof2mjk" path="res://Scenes/filled_slot.tscn" id="1_1cmjx"]
-[ext_resource type="PackedScene" uid="uid://byllxnc6kifvd" path="res://Scenes/shop_item.tscn" id="1_c0v22"]
-[ext_resource type="PackedScene" uid="uid://bsnwhqpddorc" path="res://Scenes/slot.tscn" id="2_jrxf2"]
+[ext_resource type="PackedScene" uid="uid://bj5niouof2mjk" path="res://Scenes/Asdfljk/filled_slot.tscn" id="1_1cmjx"]
+[ext_resource type="PackedScene" uid="uid://byllxnc6kifvd" path="res://Scenes/Asdfljk/shop_item.tscn" id="1_c0v22"]
+[ext_resource type="PackedScene" uid="uid://bsnwhqpddorc" path="res://Scenes/Asdfljk/slot.tscn" id="2_jrxf2"]
 [ext_resource type="Texture2D" uid="uid://bqox420clnr8e" path="res://Assets/Food.png" id="3_a3l1f"]
 [ext_resource type="Texture2D" uid="uid://cmc0oigynjrhd" path="res://Assets/Water.png" id="4_qvthr"]
 

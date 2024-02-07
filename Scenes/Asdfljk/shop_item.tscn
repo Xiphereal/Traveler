@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://byllxnc6kifvd"]
 
-[ext_resource type="PackedScene" uid="uid://bsnwhqpddorc" path="res://Scenes/slot.tscn" id="1_cyig5"]
+[ext_resource type="PackedScene" uid="uid://bsnwhqpddorc" path="res://Scenes/Asdfljk/slot.tscn" id="1_cyig5"]
 [ext_resource type="Texture2D" uid="uid://k31uhvc4l4mn" path="res://Assets/Coin.png" id="2_5o6s4"]
 [ext_resource type="Script" path="res://Code/Views/Item.cs" id="2_ne353"]
 
