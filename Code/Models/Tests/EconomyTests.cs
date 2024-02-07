@@ -49,12 +49,33 @@ namespace Models.Tests
             traveler.Coins.Should().Be(5 - 2);
         }
 
-
         [Fact]
         public void Supplies_have_cost()
         {
             Item.Water().Cost.Should().BeGreaterThan(0);
             Item.Food().Cost.Should().BeGreaterThan(0);
+        }
+
+        [Fact]
+        public void Traveler_can_buy_items()
+        {
+            const int startingCoins = 5;
+            var traveler = new Traveler(startingWith: startingCoins);
+
+            traveler.Buy(Item.Water());
+
+            traveler.Coins.Should().Be(startingCoins - Item.Water().Cost);
+        }
+
+        [Fact]
+        public void Traveler_can_only_buy_if_has_enough_coins()
+        {
+            const int startingCoins = 1;
+            var traveler = new Traveler(startingWith: startingCoins);
+
+            traveler.Buy(Item.CostlyOne());
+
+            traveler.Coins.Should().Be(startingCoins);
         }
     }
 }

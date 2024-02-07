@@ -18,5 +18,11 @@
         {
             Coins -= coins;
         }
+
+        public void Buy(Item item)
+        {
+            if (item.Cost <= Coins)
+                Coins -= item.Cost;
+        }
     }
 }
