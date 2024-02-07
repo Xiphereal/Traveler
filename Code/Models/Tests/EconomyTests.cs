@@ -6,9 +6,15 @@ namespace Models.Tests
     public class EconomyTests
     {
         [Fact]
-        public void Starts_without_money()
+        public void Traveler_starts_without_money()
         {
             new Traveler().Coins.Should().Be(0);
+        }
+
+        [Fact]
+        public void but_can_receive_a_starting_amount()
+        {
+            new Traveler(startingWith: 1).Coins.Should().Be(1);
         }
 
         [Fact]
