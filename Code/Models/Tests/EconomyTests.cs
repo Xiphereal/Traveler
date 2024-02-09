@@ -89,5 +89,16 @@ namespace Models.Tests
                 .CanAfford(Item.CostlyOne())
                 .Should().BeFalse();
         }
+
+        [Fact]
+        public void Traveler_can_carry_bought_items()
+        {
+            var traveler = new Traveler(startingWith: 5);
+            Item item = Item.Water();
+
+            traveler.Carries(item).Should().BeFalse();
+            traveler.Buy(item);
+            traveler.Carries(item).Should().BeTrue();
+        }
     }
 }

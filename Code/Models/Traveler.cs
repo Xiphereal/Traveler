@@ -1,7 +1,11 @@
-﻿namespace Models
+﻿using System.Collections.Generic;
+
+namespace Models
 {
     public class Traveler
     {
+        private readonly List<Item> backpack = new();
+
         public Traveler(int startingWith = 0)
         {
             Coins = startingWith;
@@ -22,12 +26,17 @@
         public void Buy(Item item)
         {
             if (CanAfford(item))
+            {
                 Coins -= item.Cost;
+                backpack.Add(item);
+            }
         }
 
         public bool CanAfford(Item item)
         {
             return item.Cost <= Coins;
         }
+
+        public bool Carries(Item item) => backpack.Contains(item);
     }
 }
