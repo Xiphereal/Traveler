@@ -53,7 +53,7 @@ public partial class ASdgaksdg : TextureRect
 
     public override bool _CanDropData(Vector2 atPosition, Variant data)
     {
-        return Traveler().Carries(Item) ? true : Traveler().CanAfford(Item);
+        return Traveler().Carries(Item) || Traveler().CanAfford(Item);
     }
 
     private Traveler Traveler() =>
