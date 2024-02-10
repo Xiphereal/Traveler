@@ -1,4 +1,4 @@
-using Godot;
+﻿using Godot;
 using Models;
 using System;
 using System.Linq;
@@ -76,16 +76,19 @@ public partial class ASdgaksdg : Control
 
     public override void _DropData(Vector2 atPosition, Variant data)
     {
-        if (!Traveler().Carries(Item))
-            Traveler().Buy(Item);
+        var targetItem = (ASdgaksdg)data;
 
-        SwapItemWith(data);
+        if (!Traveler().Carries(targetItem.Item))
+            Traveler().Buy(targetItem.Item);
+
+        SwapItemWith(targetItem);
     }
 
-    private void SwapItemWith(Variant source)
+    private void SwapItemWith(ASdgaksdg other)
     {
-        var other = (ASdgaksdg)source;
-
+        // Ojo que esto solo cambia las texturas. Los items no se mueven
+        // desde que se inicializa la escena. Esto me va a joder la vida
+        // en algún momento.
         (other.textureRect.Texture, textureRect.Texture) =
             (textureRect.Texture, other.textureRect.Texture);
     }
