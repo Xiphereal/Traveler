@@ -8,14 +8,18 @@ public partial class Item : Label
     [Export]
     private Supply supply;
 
+    public Models.Item Model { get; private set; }
+
     public override void _Ready()
     {
-        Text = supply switch
+        Model = supply switch
         {
-            Supply.Food => Models.Item.Food().Cost.ToString(),
-            Supply.Water => Models.Item.Water().Cost.ToString(),
+            Supply.Food => Models.Item.Food(),
+            Supply.Water => Models.Item.Water(),
             _ => throw new ArgumentException(),
         };
+
+        Text = Model.Cost.ToString();
     }
 }
 
