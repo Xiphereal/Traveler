@@ -10,7 +10,7 @@ public partial class TravelerView : Control
 
     public Traveler Traveler { get; private set; }
 
-    public override void _Ready()
+    public TravelerView()
     {
         Traveler = new Traveler(startingWith);
     }
@@ -18,5 +18,10 @@ public partial class TravelerView : Control
     public override void _Process(double delta)
     {
         GetNode<Label>("%TravelerCoins").Text = Traveler.Coins.ToString();
+    }
+
+    public void OnSlotReady(ASdgaksdg item)
+    {
+        Traveler.Owns(new[] { item.Item });
     }
 }

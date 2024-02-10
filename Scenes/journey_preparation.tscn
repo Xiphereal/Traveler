@@ -40,7 +40,8 @@ alignment = 1
 layout_mode = 2
 
 [node name="Slot" parent="UI/Shop/VBoxContainer/HBoxContainer/ShopItem/VBoxContainer" index="0"]
-itemTexture = ExtResource("3_a3l1f")
+id = 1
+itemDefinedInEditor = ExtResource("3_a3l1f")
 
 [node name="Name" parent="UI/Shop/VBoxContainer/HBoxContainer/ShopItem/VBoxContainer/ItemInfo" index="0"]
 text = "Food:"
@@ -49,7 +50,9 @@ text = "Food:"
 layout_mode = 2
 
 [node name="Slot" parent="UI/Shop/VBoxContainer/HBoxContainer/ShopItem2/VBoxContainer" index="0"]
-itemTexture = ExtResource("4_qvthr")
+id = 2
+supply = 1
+itemDefinedInEditor = ExtResource("4_qvthr")
 
 [node name="Name" parent="UI/Shop/VBoxContainer/HBoxContainer/ShopItem2/VBoxContainer/ItemInfo" index="0"]
 text = "Water:"
@@ -109,7 +112,7 @@ columns = 2
 
 [node name="Slot1" parent="UI/Backpack/VBoxContainer/Grid" instance=ExtResource("2_jrxf2")]
 layout_mode = 2
-itemTexture = ExtResource("5_to64m")
+itemDefinedInEditor = ExtResource("5_to64m")
 
 [node name="Slot2" parent="UI/Backpack/VBoxContainer/Grid" instance=ExtResource("2_jrxf2")]
 layout_mode = 2
@@ -119,6 +122,11 @@ layout_mode = 2
 
 [node name="Slot4" parent="UI/Backpack/VBoxContainer/Grid" instance=ExtResource("2_jrxf2")]
 layout_mode = 2
+
+[connection signal="ItemAppeared" from="UI/Backpack/VBoxContainer/Grid/Slot1" to="UI/Backpack" method="OnSlotReady"]
+[connection signal="ItemAppeared" from="UI/Backpack/VBoxContainer/Grid/Slot2" to="UI/Backpack" method="OnSlotReady"]
+[connection signal="ItemAppeared" from="UI/Backpack/VBoxContainer/Grid/Slot3" to="UI/Backpack" method="OnSlotReady"]
+[connection signal="ItemAppeared" from="UI/Backpack/VBoxContainer/Grid/Slot4" to="UI/Backpack" method="OnSlotReady"]
 
 [editable path="UI/Shop/VBoxContainer/HBoxContainer/ShopItem"]
 [editable path="UI/Shop/VBoxContainer/HBoxContainer/ShopItem/VBoxContainer/Slot"]

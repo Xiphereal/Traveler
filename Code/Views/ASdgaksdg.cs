@@ -18,6 +18,9 @@ public partial class ASdgaksdg : Control
     private Texture2D itemDefinedInEditor;
     private TextureRect textureRect;
 
+    [Signal]
+    public delegate void ItemAppearedEventHandler(ASdgaksdg item);
+
     public Models.Item Item { get; internal set; }
 
     public override void _Ready()
@@ -32,6 +35,8 @@ public partial class ASdgaksdg : Control
         // Lo suyo es hacer esto con la API de Godot bien, pero no termino de saber como utilizarla.
         textureRect = (TextureRect)GetChildren().Single();
         textureRect.Texture = itemDefinedInEditor;
+
+        EmitSignal(SignalName.ItemAppeared, this);
     }
 
     public override Variant _GetDragData(Vector2 atPosition)
