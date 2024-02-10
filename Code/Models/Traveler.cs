@@ -38,5 +38,10 @@ namespace Models
         }
 
         public bool Carries(Item item) => backpack.Contains(item);
+
+        public void Owns(IEnumerable<Item> items)
+        {
+            backpack.AddRange(items);
+        }
     }
 }
