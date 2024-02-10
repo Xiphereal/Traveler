@@ -41,6 +41,7 @@ layout_mode = 2
 
 [node name="Item" parent="UI/Shop/VBoxContainer/HBoxContainer/ShopItem/VBoxContainer/Slot" index="0"]
 texture = ExtResource("3_a3l1f")
+id = 2
 
 [node name="Name" parent="UI/Shop/VBoxContainer/HBoxContainer/ShopItem/VBoxContainer/ItemInfo" index="0"]
 text = "Food:"
@@ -50,6 +51,7 @@ layout_mode = 2
 
 [node name="Item" parent="UI/Shop/VBoxContainer/HBoxContainer/ShopItem2/VBoxContainer/Slot" index="0"]
 texture = ExtResource("4_qvthr")
+id = 3
 
 [node name="Name" parent="UI/Shop/VBoxContainer/HBoxContainer/ShopItem2/VBoxContainer/ItemInfo" index="0"]
 text = "Water:"
@@ -109,6 +111,9 @@ columns = 2
 
 [node name="FilledSlot" parent="UI/Backpack/VBoxContainer/Grid" instance=ExtResource("1_1cmjx")]
 layout_mode = 2
+
+[node name="Item" parent="UI/Backpack/VBoxContainer/Grid/FilledSlot" index="0"]
+id = 1
 
 [node name="Slot2" parent="UI/Backpack/VBoxContainer/Grid" instance=ExtResource("2_jrxf2")]
 layout_mode = 2

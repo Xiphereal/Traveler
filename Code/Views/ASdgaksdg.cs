@@ -7,15 +7,19 @@ namespace Views;
 public partial class ASdgaksdg : TextureRect
 {
     [Export]
+    private int id;
+
+    [Export]
     private Supply supply;
-    private Models.Item item;
+
+    public Models.Item Item { get; internal set; }
 
     public override void _Ready()
     {
-        item = supply switch
+        Item = supply switch
         {
-            Supply.Food => Models.Item.Food(),
-            Supply.Water => Models.Item.Water(),
+            Supply.Food => Models.Item.Food(id),
+            Supply.Water => Models.Item.Water(id),
             _ => throw new ArgumentException(),
         };
     }
@@ -49,15 +53,17 @@ public partial class ASdgaksdg : TextureRect
 
     public override bool _CanDropData(Vector2 atPosition, Variant data)
     {
-        return FindTraveler().CanAfford(item);
+        return Traveler().Carries(Item) ? true : Traveler().CanAfford(Item);
     }
 
-    private Traveler FindTraveler() =>
+    private Traveler Traveler() =>
         GetNode<TravelerView>("/root/Node2D/UI/Backpack").Traveler;
 
     public override void _DropData(Vector2 atPosition, Variant data)
     {
-        FindTraveler().Buy(item);
+        if (!Traveler().Carries(Item))
+            Traveler().Buy(Item);
+
         SwapItemWith(data);
     }
 
