@@ -1,16 +1,22 @@
 using Godot;
 using Models;
 using System;
+using System.Linq;
+using static Godot.TextureRect;
 
 namespace Views;
 
-public partial class ASdgaksdg : TextureRect
+public partial class ASdgaksdg : Control
 {
     [Export]
     private int id;
 
     [Export]
     private Supply supply;
+
+    [Export]
+    private Texture2D itemDefinedInEditor;
+    private TextureRect textureRect;
 
     public Models.Item Item { get; internal set; }
 
@@ -22,16 +28,20 @@ public partial class ASdgaksdg : TextureRect
             Supply.Water => Models.Item.Water(id),
             _ => throw new ArgumentException(),
         };
+
+        // Lo suyo es hacer esto con la API de Godot bien, pero no termino de saber como utilizarla.
+        textureRect = (TextureRect)GetChildren().Single();
+        textureRect.Texture = itemDefinedInEditor;
     }
 
     public override Variant _GetDragData(Vector2 atPosition)
     {
-        if (Texture is null)
+        if (textureRect.Texture is null)
             return new Variant();
 
         var itemBeingDragged = new TextureRect
         {
-            Texture = Texture,
+            Texture = textureRect.Texture,
             CustomMinimumSize = new Vector2(100, 100),
             ExpandMode = ExpandModeEnum.IgnoreSize,
         };
@@ -69,8 +79,9 @@ public partial class ASdgaksdg : TextureRect
 
     private void SwapItemWith(Variant source)
     {
-        var other = (TextureRect)source;
+        var other = (ASdgaksdg)source;
 
-        (other.Texture, Texture) = (Texture, other.Texture);
+        (other.textureRect.Texture, textureRect.Texture) =
+            (textureRect.Texture, other.textureRect.Texture);
     }
 }
