@@ -22,6 +22,6 @@ public partial class TravelerView : Control
 
     public void OnSlotReady(ASdgaksdg item)
     {
-        Traveler.Owns(new[] { item.Item });
+        Traveler.Owns(item.Item);
     }
 }
