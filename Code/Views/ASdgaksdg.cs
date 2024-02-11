@@ -33,7 +33,7 @@ public partial class ASdgaksdg : Control
         };
 
         // Lo suyo es hacer esto con la API de Godot bien, pero no termino de saber como utilizarla.
-        textureRect = (TextureRect)GetChildren().Single();
+        textureRect = GetChildren().OfType<TextureRect>().Single();
         textureRect.Texture = itemDefinedInEditor;
 
         EmitSignal(SignalName.ItemAppeared, this);
@@ -79,7 +79,10 @@ public partial class ASdgaksdg : Control
         var targetItem = (ASdgaksdg)data;
 
         if (!Traveler().Carries(targetItem.Item))
+        {
             Traveler().Buy(targetItem.Item);
+            GetChildren().OfType<AudioStreamPlayer>().Single().Play();
+        }
 
         SwapItemWith(targetItem);
     }
