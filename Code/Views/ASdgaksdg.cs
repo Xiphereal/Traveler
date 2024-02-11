@@ -2,6 +2,7 @@
 using Models;
 using System;
 using System.Linq;
+using Views.Extensions;
 using static Godot.TextureRect;
 
 namespace Views;
@@ -81,7 +82,8 @@ public partial class ASdgaksdg : Control
         if (!Traveler().Carries(targetItem.Item))
         {
             Traveler().Buy(targetItem.Item);
-            GetChildren().OfType<AudioStreamPlayer>().Single().Play();
+            GetChildren().OfType<AudioStreamPlayer>().Single()
+                .Play("res://Assets/SFX/CoinsRattle.wav");
         }
 
         SwapItemWith(targetItem);

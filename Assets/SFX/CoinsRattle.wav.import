@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://c5cyprixfjk6l"
-path="res://.godot/imported/COINS_Rattle_01_mono.wav-a16002eb68da94599c6f368597a342f8.sample"
+path="res://.godot/imported/CoinsRattle.wav-c8fd2cc9c26786da4f375c3d95087c15.sample"
 
 [deps]
 
-source_file="res://Assets/COINS_Rattle_01_mono.wav"
-dest_files=["res://.godot/imported/COINS_Rattle_01_mono.wav-a16002eb68da94599c6f368597a342f8.sample"]
+source_file="res://Assets/SFX/CoinsRattle.wav"
+dest_files=["res://.godot/imported/CoinsRattle.wav-c8fd2cc9c26786da4f375c3d95087c15.sample"]
 
 [params]
 
