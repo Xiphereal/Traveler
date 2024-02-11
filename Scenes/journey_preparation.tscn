@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://capq7s5s3an5v"]
+[gd_scene load_steps=9 format=3 uid="uid://capq7s5s3an5v"]
 
 [ext_resource type="PackedScene" uid="uid://byllxnc6kifvd" path="res://Scenes/Asdfljk/shop_item.tscn" id="1_c0v22"]
 [ext_resource type="PackedScene" uid="uid://bsnwhqpddorc" path="res://Scenes/Asdfljk/slot.tscn" id="2_jrxf2"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cmc0oigynjrhd" path="res://Assets/Water.png" id="4_qvthr"]
 [ext_resource type="Texture2D" uid="uid://k31uhvc4l4mn" path="res://Assets/Coin.png" id="5_eas6b"]
 [ext_resource type="Texture2D" uid="uid://ciay8tq8ilkfx" path="res://Assets/Item1.png" id="5_to64m"]
+[ext_resource type="AudioStream" uid="uid://6xyplbx3kl27" path="res://Assets/SFX/ShopEnter.wav" id="8_tupx2"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -122,6 +123,10 @@ layout_mode = 2
 
 [node name="Slot4" parent="UI/Backpack/VBoxContainer/Grid" instance=ExtResource("2_jrxf2")]
 layout_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_tupx2")
+autoplay = true
 
 [connection signal="ItemAppeared" from="UI/Backpack/VBoxContainer/Grid/Slot1" to="UI/Backpack" method="OnSlotReady"]
 [connection signal="ItemAppeared" from="UI/Backpack/VBoxContainer/Grid/Slot2" to="UI/Backpack" method="OnSlotReady"]
