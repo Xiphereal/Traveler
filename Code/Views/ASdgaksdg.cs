@@ -52,6 +52,9 @@ public partial class ASdgaksdg : Control
             ExpandMode = ExpandModeEnum.IgnoreSize,
         };
 
+        GetChildren().OfType<AudioStreamPlayer>().Single()
+            .Play("res://Assets/SFX/GrabItem.wav");
+
         SetDragPreview(CenteredOnMouse(itemBeingDragged));
 
         return this;
@@ -84,6 +87,11 @@ public partial class ASdgaksdg : Control
             Traveler().Buy(targetItem.Item);
             GetChildren().OfType<AudioStreamPlayer>().Single()
                 .Play("res://Assets/SFX/CoinsRattle.wav");
+        }
+        else
+        {
+            GetChildren().OfType<AudioStreamPlayer>().Single()
+                .Play("res://Assets/SFX/DropItem.wav");
         }
 
         SwapItemWith(targetItem);
