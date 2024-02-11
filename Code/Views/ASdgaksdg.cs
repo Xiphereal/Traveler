@@ -82,16 +82,16 @@ public partial class ASdgaksdg : Control
     {
         var targetItem = (ASdgaksdg)data;
 
-        if (!Traveler().Carries(targetItem.Item))
+        if (Traveler().Carries(targetItem.Item))
+        {
+            GetChildren().OfType<AudioStreamPlayer>().Single()
+                .Play("res://Assets/SFX/DropItem.wav");
+        }
+        else
         {
             Traveler().Buy(targetItem.Item);
             GetChildren().OfType<AudioStreamPlayer>().Single()
                 .Play("res://Assets/SFX/CoinsRattle.wav");
-        }
-        else
-        {
-            GetChildren().OfType<AudioStreamPlayer>().Single()
-                .Play("res://Assets/SFX/DropItem.wav");
         }
 
         SwapItemWith(targetItem);
