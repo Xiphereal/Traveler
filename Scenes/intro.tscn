@@ -139,4 +139,4 @@ stream = ExtResource("3_h0n1p")
 volume_db = -12.654
 autoplay = true
 
-[connection signal="pressed" from="Panel/PanelContainer/VBoxContainer/Button" to="Panel/PanelContainer/VBoxContainer/Button" method="_on_pressed"]
+[connection signal="pressed" from="Panel/PanelContainer/VBoxContainer/Button" to="Panel/PanelContainer/VBoxContainer/Button" method="_go_to_next_scene"]

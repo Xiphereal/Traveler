@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://capq7s5s3an5v"]
+[gd_scene load_steps=10 format=3 uid="uid://capq7s5s3an5v"]
 
 [ext_resource type="PackedScene" uid="uid://byllxnc6kifvd" path="res://Scenes/Asdfljk/shop_item.tscn" id="1_c0v22"]
 [ext_resource type="PackedScene" uid="uid://bsnwhqpddorc" path="res://Scenes/Asdfljk/slot.tscn" id="2_jrxf2"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cmc0oigynjrhd" path="res://Assets/Water.png" id="4_qvthr"]
 [ext_resource type="Texture2D" uid="uid://k31uhvc4l4mn" path="res://Assets/Coin.png" id="5_eas6b"]
 [ext_resource type="Texture2D" uid="uid://ciay8tq8ilkfx" path="res://Assets/Item1.png" id="5_to64m"]
+[ext_resource type="Script" path="res://Code/Views/GoToNextScene.gd" id="8_g2po7"]
 [ext_resource type="AudioStream" uid="uid://6xyplbx3kl27" path="res://Assets/SFX/ShopEnter.wav" id="8_tupx2"]
 
 [node name="Node2D" type="Node2D"]
@@ -69,9 +70,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -136.0
-offset_top = -117.0
+offset_top = -117.5
 offset_right = 136.0
-offset_bottom = 118.0
+offset_bottom = 117.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_i1xa4")
@@ -124,6 +125,21 @@ layout_mode = 2
 [node name="Slot4" parent="UI/Backpack/VBoxContainer/Grid" instance=ExtResource("2_jrxf2")]
 layout_mode = 2
 
+[node name="Button" type="Button" parent="UI"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -183.0
+offset_top = -75.0
+offset_right = -49.0
+offset_bottom = -44.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Resume journey"
+script = ExtResource("8_g2po7")
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_tupx2")
 autoplay = true
@@ -132,6 +148,7 @@ autoplay = true
 [connection signal="ItemAppeared" from="UI/Backpack/VBoxContainer/Grid/Slot2" to="UI/Backpack" method="OnSlotReady"]
 [connection signal="ItemAppeared" from="UI/Backpack/VBoxContainer/Grid/Slot3" to="UI/Backpack" method="OnSlotReady"]
 [connection signal="ItemAppeared" from="UI/Backpack/VBoxContainer/Grid/Slot4" to="UI/Backpack" method="OnSlotReady"]
+[connection signal="pressed" from="UI/Button" to="UI/Button" method="_go_to_next_scene"]
 
 [editable path="UI/Shop/VBoxContainer/HBoxContainer/ShopItem"]
 [editable path="UI/Shop/VBoxContainer/HBoxContainer/ShopItem/VBoxContainer/Slot"]

@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=3 uid="uid://bi6c2mnp4nnqi"]
+
+[ext_resource type="Script" path="res://Code/Views/GoToNextScene.gd" id="1_ptp2m"]
+[ext_resource type="PackedScene" uid="uid://capq7s5s3an5v" path="res://Scenes/journey_preparation.tscn" id="2_47c5o"]
+[ext_resource type="AudioStream" uid="uid://dxvwb4wiv7h4c" path="res://Assets/SFX/AmbienceForestWind.wav" id="3_ytxop"]
+
+[sub_resource type="Animation" id="Animation_6r2k1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Wandering..."]
+}
+
+[sub_resource type="Animation" id="Animation_1nk4m"]
+resource_name = "wandering"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": ["Wandering", "Wandering.", "Wandering..", "Wandering..."]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_skal4"]
+_data = {
+"RESET": SubResource("Animation_6r2k1"),
+"wandering": SubResource("Animation_1nk4m")
+}
+
+[node name="Traveling" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Wandering..."
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/Label"]
+libraries = {
+"": SubResource("AnimationLibrary_skal4")
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 6.0
+autostart = true
+script = ExtResource("1_ptp2m")
+next = ExtResource("2_47c5o")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ytxop")
+volume_db = -12.654
+autoplay = true
+
+[connection signal="timeout" from="Timer" to="Timer" method="_go_to_next_scene"]
