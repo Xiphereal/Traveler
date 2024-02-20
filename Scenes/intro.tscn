@@ -9,7 +9,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Label:theme_override_colors/font_color")
+tracks/0/path = NodePath("Text:theme_override_colors/font_color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -21,7 +21,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Button:modulate")
+tracks/1/path = NodePath("Prepare:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -37,7 +37,7 @@ length = 10.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Label:theme_override_colors/font_color")
+tracks/0/path = NodePath("Text:theme_override_colors/font_color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -49,7 +49,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Button:modulate")
+tracks/1/path = NodePath("Prepare:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -103,7 +103,7 @@ alignment = 1
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/PanelContainer/VBoxContainer"]
+[node name="Text" type="Label" parent="Panel/PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -116,7 +116,7 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Panel/PanelContainer/VBoxContainer"]
+[node name="Prepare" type="Button" parent="Panel/PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -139,4 +139,4 @@ stream = ExtResource("3_h0n1p")
 volume_db = -12.654
 autoplay = true
 
-[connection signal="pressed" from="Panel/PanelContainer/VBoxContainer/Button" to="Panel/PanelContainer/VBoxContainer/Button" method="_go_to_next_scene"]
+[connection signal="pressed" from="Panel/PanelContainer/VBoxContainer/Prepare" to="Panel/PanelContainer/VBoxContainer/Prepare" method="_go_to_next_scene"]
