@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bp85ht1biid1v"]
+[gd_scene load_steps=6 format=3 uid="uid://bp85ht1biid1v"]
 
 [ext_resource type="Script" path="res://Code/Views/GoToNextScene.gd" id="1_uf5et"]
-[ext_resource type="PackedScene" uid="uid://capq7s5s3an5v" path="res://Scenes/journey_preparation.tscn" id="2_ga8pw"]
 [ext_resource type="AudioStream" uid="uid://dxvwb4wiv7h4c" path="res://Assets/SFX/AmbienceForestWind.wav" id="3_h0n1p"]
 
 [sub_resource type="Animation" id="Animation_nlqfn"]
@@ -122,7 +121,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Prepare"
 script = ExtResource("1_uf5et")
-next = ExtResource("2_ga8pw")
+pathToNextScene = "res://Scenes/journey_preparation.tscn"
 
 [node name="spacer3" type="Control" parent="Panel/PanelContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)

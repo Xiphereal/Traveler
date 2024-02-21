@@ -139,6 +139,7 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "Resume journey"
 script = ExtResource("8_g2po7")
+pathToNextScene = "res://Scenes/traveling.tscn"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_tupx2")

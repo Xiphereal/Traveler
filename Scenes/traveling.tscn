@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bi6c2mnp4nnqi"]
+[gd_scene load_steps=6 format=3 uid="uid://bi6c2mnp4nnqi"]
 
 [ext_resource type="Script" path="res://Code/Views/GoToNextScene.gd" id="1_ptp2m"]
-[ext_resource type="PackedScene" uid="uid://capq7s5s3an5v" path="res://Scenes/journey_preparation.tscn" id="2_47c5o"]
 [ext_resource type="AudioStream" uid="uid://dxvwb4wiv7h4c" path="res://Assets/SFX/AmbienceForestWind.wav" id="3_ytxop"]
 
 [sub_resource type="Animation" id="Animation_6r2k1"]
@@ -76,7 +75,7 @@ libraries = {
 wait_time = 6.0
 autostart = true
 script = ExtResource("1_ptp2m")
-next = ExtResource("2_47c5o")
+pathToNextScene = "res://Scenes/journey_preparation.tscn"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_ytxop")
