@@ -1,14 +1,20 @@
-﻿namespace Models
+﻿using System.Collections.Generic;
+
+namespace Models
 {
     public class Roadmap
     {
-        public Roadmap()
+        private List<string> stops = new()
         {
-        }
+            "intro",
+            "preparation"
+        };
 
-        public string Next()
+        private int stop = 0;
+
+        public string NextStop()
         {
-            return "intro";
+            return stops[stop++];
         }
     }
 }
