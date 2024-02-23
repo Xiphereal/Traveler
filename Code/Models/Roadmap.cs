@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Models
 {
     public class Roadmap
     {
-        private List<string> stops = new()
+        private readonly List<string> stops = new()
         {
             "intro",
             "preparation",
@@ -15,9 +16,10 @@ namespace Models
 
         private int stop = 0;
 
-        public string NextStop()
-        {
-            return stops[stop++];
-        }
+        public void AddStop(string stop) => stops.Add(stop);
+
+        public string NextStop() => stops[stop++];
+
+        public string LastStop() => stops.Last();
     }
 }

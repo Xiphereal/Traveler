@@ -5,10 +5,8 @@ namespace Models.Tests;
 
 public class RoadmapTests
 {
-    // Tener una baseline por defecto del roadmap
-    // añadir siguientes paradas del viaje
     // que devuelva las paradas en forma de nombres de escenas
-    // y la parametrización que?
+    // y la parametrización de que?
 
     [Fact]
     public void First_stop_is_the_introduction()
@@ -24,7 +22,6 @@ public class RoadmapTests
         sut.NextStop().Should().Be("preparation");
     }
 
-
     [Fact]
     public void Predefined_stops()
     {
@@ -34,5 +31,13 @@ public class RoadmapTests
         sut.NextStop().Should().Be("travelling");
         sut.NextStop().Should().Be("preparation");
         sut.NextStop().Should().Be("travelling");
+    }
+
+    [Fact]
+    public void New_stops_can_be_defined()
+    {
+        var sut = new Roadmap();
+        sut.AddStop("any");
+        sut.LastStop().Should().Be("any");
     }
 }
