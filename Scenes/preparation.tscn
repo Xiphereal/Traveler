@@ -1,14 +1,14 @@
 [gd_scene load_steps=10 format=3 uid="uid://capq7s5s3an5v"]
 
-[ext_resource type="PackedScene" uid="uid://byllxnc6kifvd" path="res://Scenes/Asdfljk/shop_item.tscn" id="1_c0v22"]
-[ext_resource type="PackedScene" uid="uid://bsnwhqpddorc" path="res://Scenes/Asdfljk/slot.tscn" id="2_jrxf2"]
-[ext_resource type="Texture2D" uid="uid://bqox420clnr8e" path="res://Assets/Food.png" id="3_a3l1f"]
-[ext_resource type="Script" path="res://Code/Views/TravelerView.cs" id="4_i1xa4"]
-[ext_resource type="Texture2D" uid="uid://cmc0oigynjrhd" path="res://Assets/Water.png" id="4_qvthr"]
-[ext_resource type="Texture2D" uid="uid://k31uhvc4l4mn" path="res://Assets/Coin.png" id="5_eas6b"]
-[ext_resource type="Texture2D" uid="uid://ciay8tq8ilkfx" path="res://Assets/Item1.png" id="5_to64m"]
-[ext_resource type="Script" path="res://Code/Views/GoToNextScene.gd" id="8_g2po7"]
-[ext_resource type="AudioStream" uid="uid://6xyplbx3kl27" path="res://Assets/SFX/ShopEnter.wav" id="8_tupx2"]
+[ext_resource type="PackedScene" uid="uid://byllxnc6kifvd" path="res://Scenes/Asdfljk/shop_item.tscn" id="1_w0pmj"]
+[ext_resource type="Texture2D" uid="uid://bqox420clnr8e" path="res://Assets/Food.png" id="2_ei6fr"]
+[ext_resource type="Texture2D" uid="uid://cmc0oigynjrhd" path="res://Assets/Water.png" id="3_yg5vm"]
+[ext_resource type="Script" path="res://Code/Views/TravelerView.cs" id="4_cwkbd"]
+[ext_resource type="Texture2D" uid="uid://k31uhvc4l4mn" path="res://Assets/Coin.png" id="5_85ro8"]
+[ext_resource type="PackedScene" uid="uid://bsnwhqpddorc" path="res://Scenes/Asdfljk/slot.tscn" id="6_s3h0r"]
+[ext_resource type="Texture2D" uid="uid://ciay8tq8ilkfx" path="res://Assets/Item1.png" id="7_syd0s"]
+[ext_resource type="Script" path="res://Code/Views/GoToNextScene.gd" id="8_tyoa7"]
+[ext_resource type="AudioStream" uid="uid://6xyplbx3kl27" path="res://Assets/SFX/ShopEnter.wav" id="9_elsiv"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -38,23 +38,23 @@ horizontal_alignment = 1
 layout_mode = 2
 alignment = 1
 
-[node name="ShopItem" parent="UI/Shop/VBoxContainer/HBoxContainer" instance=ExtResource("1_c0v22")]
+[node name="ShopItem" parent="UI/Shop/VBoxContainer/HBoxContainer" instance=ExtResource("1_w0pmj")]
 layout_mode = 2
 
 [node name="Slot" parent="UI/Shop/VBoxContainer/HBoxContainer/ShopItem/VBoxContainer" index="0"]
 id = 1
-itemDefinedInEditor = ExtResource("3_a3l1f")
+itemDefinedInEditor = ExtResource("2_ei6fr")
 
 [node name="Name" parent="UI/Shop/VBoxContainer/HBoxContainer/ShopItem/VBoxContainer/ItemInfo" index="0"]
 text = "Food:"
 
-[node name="ShopItem2" parent="UI/Shop/VBoxContainer/HBoxContainer" instance=ExtResource("1_c0v22")]
+[node name="ShopItem2" parent="UI/Shop/VBoxContainer/HBoxContainer" instance=ExtResource("1_w0pmj")]
 layout_mode = 2
 
 [node name="Slot" parent="UI/Shop/VBoxContainer/HBoxContainer/ShopItem2/VBoxContainer" index="0"]
 id = 2
 supply = 1
-itemDefinedInEditor = ExtResource("4_qvthr")
+itemDefinedInEditor = ExtResource("3_yg5vm")
 
 [node name="Name" parent="UI/Shop/VBoxContainer/HBoxContainer/ShopItem2/VBoxContainer/ItemInfo" index="0"]
 text = "Water:"
@@ -75,7 +75,7 @@ offset_right = 136.0
 offset_bottom = 117.5
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("4_i1xa4")
+script = ExtResource("4_cwkbd")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Backpack"]
 layout_mode = 2
@@ -102,7 +102,7 @@ custom_minimum_size = Vector2(22, 22)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
-texture = ExtResource("5_eas6b")
+texture = ExtResource("5_85ro8")
 expand_mode = 1
 stretch_mode = 5
 
@@ -112,17 +112,17 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 columns = 2
 
-[node name="Slot1" parent="UI/Backpack/VBoxContainer/Grid" instance=ExtResource("2_jrxf2")]
+[node name="Slot1" parent="UI/Backpack/VBoxContainer/Grid" instance=ExtResource("6_s3h0r")]
 layout_mode = 2
-itemDefinedInEditor = ExtResource("5_to64m")
+itemDefinedInEditor = ExtResource("7_syd0s")
 
-[node name="Slot2" parent="UI/Backpack/VBoxContainer/Grid" instance=ExtResource("2_jrxf2")]
-layout_mode = 2
-
-[node name="Slot3" parent="UI/Backpack/VBoxContainer/Grid" instance=ExtResource("2_jrxf2")]
+[node name="Slot2" parent="UI/Backpack/VBoxContainer/Grid" instance=ExtResource("6_s3h0r")]
 layout_mode = 2
 
-[node name="Slot4" parent="UI/Backpack/VBoxContainer/Grid" instance=ExtResource("2_jrxf2")]
+[node name="Slot3" parent="UI/Backpack/VBoxContainer/Grid" instance=ExtResource("6_s3h0r")]
+layout_mode = 2
+
+[node name="Slot4" parent="UI/Backpack/VBoxContainer/Grid" instance=ExtResource("6_s3h0r")]
 layout_mode = 2
 
 [node name="Button" type="Button" parent="UI"]
@@ -138,11 +138,11 @@ offset_bottom = -44.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "Resume journey"
-script = ExtResource("8_g2po7")
-pathToNextScene = "res://Scenes/traveling.tscn"
+script = ExtResource("8_tyoa7")
+pathToNextScene = "res://Scenes/travelling.tscn"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_tupx2")
+stream = ExtResource("9_elsiv")
 autoplay = true
 
 [connection signal="ItemAppeared" from="UI/Backpack/VBoxContainer/Grid/Slot1" to="UI/Backpack" method="OnSlotReady"]

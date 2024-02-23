@@ -121,7 +121,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Prepare"
 script = ExtResource("1_uf5et")
-pathToNextScene = "res://Scenes/journey_preparation.tscn"
+pathToNextScene = "res://Scenes/preparation.tscn"
 
 [node name="spacer3" type="Control" parent="Panel/PanelContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
