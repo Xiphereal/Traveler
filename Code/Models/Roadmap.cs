@@ -7,7 +7,10 @@ namespace Models
         private List<string> stops = new()
         {
             "intro",
-            "preparation"
+            "preparation",
+            "travelling",
+            "preparation",
+            "travelling",
         };
 
         private int stop = 0;

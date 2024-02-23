@@ -23,4 +23,16 @@ public class RoadmapTests
         sut.NextStop();
         sut.NextStop().Should().Be("preparation");
     }
+
+
+    [Fact]
+    public void Predefined_stops()
+    {
+        var sut = new Roadmap();
+        sut.NextStop().Should().Be("intro");
+        sut.NextStop().Should().Be("preparation");
+        sut.NextStop().Should().Be("travelling");
+        sut.NextStop().Should().Be("preparation");
+        sut.NextStop().Should().Be("travelling");
+    }
 }
