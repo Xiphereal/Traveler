@@ -39,9 +39,6 @@ namespace Models
 
         public bool Carries(Item item) => backpack.Contains(item);
 
-        public void Owns(Item item)
-        {
-            backpack.Add(item);
-        }
+        public void Owns(Item item) => backpack.Add(item);
     }
 }

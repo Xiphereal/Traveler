@@ -4,20 +4,22 @@ namespace Models
 {
     public class Item
     {
-        private int id;
+        private readonly int id;
 
-        public Item(int? id = null)
+        public Item(string name, int? id = null)
         {
             this.id = id is null ? new Random().Next(1, 9999) : id.Value;
+            Name = name;
         }
 
         public int Cost { get; private set; }
 
-        public static Item Water(int? id = null) => new(id) { Cost = 2 };
+        public string Name { get; private set; }
 
-        public static Item Food(int? id = null) => new(id) { Cost = 3 };
-
-        public static Item CostlyOne() => new() { Cost = 99999999 };
+        public static Item Water(int? id = null) => new("Water", id) { Cost = 2 };
+        public static Item Food(int? id = null) => new("Food", id) { Cost = 3 };
+        public static Item Map(int? id = null) => new("Map", id);
+        public static Item CostlyOne() => new("CostlyOne") { Cost = 99999999 };
 
         public override bool Equals(object obj)
         {

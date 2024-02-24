@@ -3,6 +3,7 @@ using Godot.Collections;
 using Models;
 using System.Collections.Generic;
 using System.Linq;
+using Views.Extensions;
 
 namespace Views;
 
@@ -23,6 +24,12 @@ public partial class TravelerView : Control
 
     public override void _Ready()
     {
+        if (Persistence().OwnedItems.Any())
+        {
+            ownedItems = new Array<Texture2D>(
+                Persistence().OwnedItems.Select(item => item.ToTexture()));
+        }
+
         foreach (var item in ownedItems)
             PutInBackpack(item);
     }
