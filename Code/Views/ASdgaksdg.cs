@@ -99,10 +99,9 @@ public partial class ASdgaksdg : Control
 
     private void SwapItemWith(ASdgaksdg other)
     {
-        // Ojo que esto solo cambia las texturas. Los items no se mueven
-        // desde que se inicializa la escena. Esto me va a joder la vida
-        // en algún momento.
         (other.textureRect.Texture, textureRect.Texture) =
             (textureRect.Texture, other.textureRect.Texture);
+
+        (other.Item, Item) = (Item, other.Item);
     }
 }
