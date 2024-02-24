@@ -30,6 +30,7 @@ public partial class ASdgaksdg : Control
         {
             Supply.Food => Models.Item.Food(id),
             Supply.Water => Models.Item.Water(id),
+            Supply.Null => Models.Item.Null(),
             _ => throw new ArgumentException(),
         };
 

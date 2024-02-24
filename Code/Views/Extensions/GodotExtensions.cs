@@ -13,6 +13,11 @@ namespace Views.Extensions
 
         public static Texture2D ToTexture(this Models.Item item)
         {
+            if (item.Name == "null")
+            {
+                return null;
+            }
+
             var candidateTexturePath = $"res://Assets/{item.Name}.png";
 
             if (!ResourceLoader.Exists(candidateTexturePath))

@@ -14,6 +14,7 @@ public partial class Item : Label
     {
         Model = supply switch
         {
+            Supply.Null => Models.Item.Null(),
             Supply.Food => Models.Item.Food(),
             Supply.Water => Models.Item.Water(),
             _ => throw new ArgumentException(),
@@ -25,6 +26,7 @@ public partial class Item : Label
 
 public enum Supply
 {
+    Null,
     Food,
     Water,
 }

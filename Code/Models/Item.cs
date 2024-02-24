@@ -16,6 +16,7 @@ namespace Models
 
         public string Name { get; private set; }
 
+        public static Item Null() => new("null");
         public static Item Water(int? id = null) => new("Water", id) { Cost = 2 };
         public static Item Food(int? id = null) => new("Food", id) { Cost = 3 };
         public static Item Map(int? id = null) => new("Map", id);
