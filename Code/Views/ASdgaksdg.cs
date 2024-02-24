@@ -17,7 +17,7 @@ public partial class ASdgaksdg : Control
 
     [Export]
     private Texture2D itemDefinedInEditor;
-    private TextureRect textureRect;
+    internal TextureRect textureRect;
 
     [Signal]
     public delegate void ItemAppearedEventHandler(ASdgaksdg item);
