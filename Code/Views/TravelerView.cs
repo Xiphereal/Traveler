@@ -58,4 +58,12 @@ public partial class TravelerView : Control
     {
         Traveler.Owns(item.Item);
     }
+
+    public override void _ExitTree()
+    {
+        Persistence().Persist(Traveler);
+    }
+
+    private Persistence Persistence() =>
+        GetNode<Persistence>($"/root/{nameof(Persistence)}");
 }

@@ -4,7 +4,7 @@ namespace Models
 {
     public class Traveler
     {
-        private readonly List<Item> backpack = new();
+        public readonly List<Item> backpack = new();
 
         public Traveler(int startingWith = 0)
         {
