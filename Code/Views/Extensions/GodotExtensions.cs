@@ -13,12 +13,16 @@ namespace Views.Extensions
 
         public static Texture2D ToTexture(this Models.Item item)
         {
-            return item.Name switch
+            var candidateTexturePath = $"res://Assets/{item.Name}.png";
+
+            if (!ResourceLoader.Exists(candidateTexturePath))
             {
-                "Map" => ResourceLoader.Load<Texture2D>("res://Assets/Map"),
-                _ => throw new ArgumentException(
-                    $"No conversion to texture for {item.Name}"),
-            };
+                throw new ArgumentException(
+                    $"No conversion to texture for {item.Name} " +
+                    $"at {candidateTexturePath}");
+            }
+
+            return ResourceLoader.Load<Texture2D>(candidateTexturePath);
         }
     }
 }
