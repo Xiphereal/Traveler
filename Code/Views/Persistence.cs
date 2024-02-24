@@ -6,7 +6,7 @@ namespace Views;
 
 public partial class Persistence : Node
 {
-    public List<Models.Item> OwnedItems { get; internal set; }
+    public List<Models.Item> OwnedItems { get; internal set; } = new();
     public int Coins { get; private set; }
 
     public void Persist(Models.Traveler traveler)
