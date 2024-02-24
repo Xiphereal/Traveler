@@ -72,7 +72,10 @@ public partial class ASdgaksdg : Control
 
     public override bool _CanDropData(Vector2 atPosition, Variant data)
     {
-        return Traveler().Carries(Item) || Traveler().CanAfford(Item);
+        var item = (ASdgaksdg)data;
+
+        return !item.Item.Equals(Item)
+            && (Traveler().Carries(Item) || Traveler().CanAfford(Item));
     }
 
     private Traveler Traveler() =>
