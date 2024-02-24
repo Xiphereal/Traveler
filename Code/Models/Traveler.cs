@@ -11,7 +11,7 @@ namespace Models
             Coins = startingWith;
         }
 
-        public int Coins { get; private set; }
+        public int Coins { get; set; }
 
         public void Earn(int coins)
         {

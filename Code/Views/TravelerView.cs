@@ -24,10 +24,11 @@ public partial class TravelerView : Control
 
     public override void _Ready()
     {
-        if (Persistence().OwnedItems.Any())
+        if (Persistence().HasAnything)
         {
             ownedItems = new Array<Texture2D>(
                 Persistence().OwnedItems.Select(item => item.ToTexture()));
+            Traveler.Coins = Persistence().Coins;
         }
 
         foreach (var item in ownedItems)
