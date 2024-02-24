@@ -17,7 +17,7 @@ config/icon="res://Assets/Traveler.png"
 
 [autoload]
 
-Gdsfg="*res://Code/Views/Persistence.cs"
+Persistence="*res://Code/Views/Persistence.cs"
 
 [dotnet]
 
