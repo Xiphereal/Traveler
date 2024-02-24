@@ -1,5 +1,6 @@
 ﻿using Godot;
 using Models;
+using Models.Utils;
 using System;
 using System.Linq;
 using Views.Extensions;
@@ -9,8 +10,7 @@ namespace Views;
 
 public partial class ASdgaksdg : Control
 {
-    [Export]
-    private int id;
+    private int id = IdGenerator.NewId();
 
     [Export]
     private Supply supply;
