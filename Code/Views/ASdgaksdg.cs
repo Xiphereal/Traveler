@@ -1,6 +1,5 @@
 ﻿using Godot;
 using Models;
-using Models.Utils;
 using System;
 using System.Linq;
 using Views.Extensions;
@@ -10,8 +9,6 @@ namespace Views;
 
 public partial class ASdgaksdg : Control
 {
-    private int id = IdGenerator.NewId();
-
     [Export]
     private Supply supply;
 
@@ -28,8 +25,8 @@ public partial class ASdgaksdg : Control
     {
         Item = supply switch
         {
-            Supply.Food => Models.Item.Food(id),
-            Supply.Water => Models.Item.Water(id),
+            Supply.Food => Models.Item.Food(),
+            Supply.Water => Models.Item.Water(),
             Supply.Null => Models.Item.Null(),
             _ => throw new ArgumentException(),
         };

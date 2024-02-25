@@ -42,10 +42,9 @@ public partial class TravelerView : Control
 
     private void PutInBackpack(Texture2D item, int at)
     {
-        var backpack = GetAllDescendantsOf(this).OfType<GridContainer>().Single();
-
         Traveler.Owns(item.ToItem());
 
+        var backpack = GetAllDescendantsOf(this).OfType<GridContainer>().Single();
         backpack.GetChildren()
             .OfType<ASdgaksdg>().ElementAt(at)
             .textureRect.Texture = item;

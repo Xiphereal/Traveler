@@ -102,13 +102,21 @@ namespace Models.Tests
         }
 
         [Fact]
+        public void Traveler_can_not_carry_duplicates()
+        {
+            var traveler = new Traveler(startingWith: 5);
+            var item = Item.Map();
+
+            traveler.Owns(item);
+            traveler.Carries(item).Should().BeTrue();
+
+            traveler.Owns(item);
+            traveler.backpack.Should().ContainSingle();
+        }
+
+        [Fact]
         public void Items_identity_is_defined_by_id()
         {
-            int sameID = 4;
-
-            Item.Water(sameID)
-                .Should().Be(Item.Water(sameID));
-
             Item.Water()
                 .Should().NotBe(Item.Water());
         }

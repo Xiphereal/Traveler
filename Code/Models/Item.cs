@@ -1,14 +1,13 @@
-﻿using System;
+﻿using Models.Utils;
 
 namespace Models
 {
     public class Item
     {
-        private readonly int id;
+        private readonly int id = IdGenerator.NewId();
 
-        public Item(string name, int? id = null)
+        public Item(string name)
         {
-            this.id = id is null ? new Random().Next(1, 9999) : id.Value;
             Name = name;
         }
 
@@ -17,15 +16,20 @@ namespace Models
         public string Name { get; private set; }
 
         public static Item Null() => new("null");
-        public static Item Water(int? id = null) => new("Water", id) { Cost = 2 };
-        public static Item Food(int? id = null) => new("Food", id) { Cost = 3 };
-        public static Item Map(int? id = null) => new("Map", id);
+        public static Item Water() => new("Water") { Cost = 2 };
+        public static Item Food() => new("Food") { Cost = 3 };
+        public static Item Map() => new("Map");
         public static Item CostlyOne() => new("CostlyOne") { Cost = 99999999 };
 
         public override bool Equals(object obj)
         {
             return obj is Item item &&
                 id.Equals(item.id);
+        }
+
+        public override int GetHashCode()
+        {
+            return 0;
         }
     }
 }
