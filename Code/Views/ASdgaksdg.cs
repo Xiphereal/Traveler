@@ -37,8 +37,6 @@ public partial class ASdgaksdg : Control
         // Lo suyo es hacer esto con la API de Godot bien, pero no termino de saber como utilizarla.
         textureRect = GetChildren().OfType<TextureRect>().Single();
         textureRect.Texture = itemDefinedInEditor;
-
-        EmitSignal(SignalName.ItemAppeared, this);
     }
 
     public override Variant _GetDragData(Vector2 atPosition)
@@ -73,9 +71,9 @@ public partial class ASdgaksdg : Control
 
     public override bool _CanDropData(Vector2 atPosition, Variant data)
     {
-        var item = (ASdgaksdg)data;
+        var targetItem = (ASdgaksdg)data;
 
-        return !item.Item.Equals(Item)
+        return !targetItem.Item.Equals(Item)
             && (Traveler().Carries(Item) || Traveler().CanAfford(Item));
     }
 

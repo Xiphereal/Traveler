@@ -1,5 +1,6 @@
 ﻿using Godot;
 using System;
+using System.Linq;
 
 namespace Views.Extensions
 {
@@ -28,6 +29,14 @@ namespace Views.Extensions
             }
 
             return ResourceLoader.Load<Texture2D>(candidateTexturePath);
+        }
+
+        public static Models.Item ToItem(this Texture2D texture)
+        {
+            string name = texture.ResourcePath.Split("/").Last()
+                .Replace(".png", string.Empty);
+
+            return new Models.Item(name);
         }
     }
 }

@@ -25,22 +25,29 @@ public partial class TravelerView : Control
     public override void _Ready()
     {
         if (Persistence().HasAnything)
-        {
-            ownedItems = new Array<Texture2D>(
-                Persistence().OwnedItems.Select(item => item.ToTexture()));
-            Traveler.Coins = Persistence().Coins;
-        }
+            RetrieveFrom(Persistence());
 
-        foreach (var item in ownedItems)
-            PutInBackpack(item);
+        for (int i = 0; i < ownedItems.Count; i++)
+            PutInBackpack(ownedItems[i], at: i);
     }
 
-    private void PutInBackpack(Texture2D item)
+    private void RetrieveFrom(Persistence persistence)
+    {
+        ownedItems = new Array<Texture2D>(
+            persistence.OwnedItems.Select(item => item.ToTexture()));
+        persistence.OwnedItems.ForEach(item => Traveler.Owns(item));
+
+        Traveler.Coins = persistence.Coins;
+    }
+
+    private void PutInBackpack(Texture2D item, int at)
     {
         var backpack = GetAllDescendantsOf(this).OfType<GridContainer>().Single();
 
+        Traveler.Owns(item.ToItem());
+
         backpack.GetChildren()
-            .OfType<ASdgaksdg>().First()
+            .OfType<ASdgaksdg>().ElementAt(at)
             .textureRect.Texture = item;
     }
 
