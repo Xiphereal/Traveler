@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://capq7s5s3an5v"]
 
-[ext_resource type="PackedScene" uid="uid://byllxnc6kifvd" path="res://Scenes/Asdfljk/shop_item.tscn" id="1_w0pmj"]
+[ext_resource type="PackedScene" uid="uid://byllxnc6kifvd" path="res://Scenes/Prefabs/shop_item.tscn" id="1_w0pmj"]
 [ext_resource type="Texture2D" uid="uid://bqox420clnr8e" path="res://Assets/Food.png" id="2_ei6fr"]
 [ext_resource type="Texture2D" uid="uid://cmc0oigynjrhd" path="res://Assets/Water.png" id="3_yg5vm"]
 [ext_resource type="Script" path="res://Code/Views/TravelerView.cs" id="4_cwkbd"]
 [ext_resource type="Texture2D" uid="uid://k31uhvc4l4mn" path="res://Assets/Coin.png" id="5_85ro8"]
-[ext_resource type="PackedScene" uid="uid://bsnwhqpddorc" path="res://Scenes/Asdfljk/slot.tscn" id="6_s3h0r"]
+[ext_resource type="PackedScene" uid="uid://bsnwhqpddorc" path="res://Scenes/Prefabs/slot.tscn" id="6_s3h0r"]
 [ext_resource type="Texture2D" uid="uid://ciay8tq8ilkfx" path="res://Assets/Map.png" id="7_syd0s"]
 [ext_resource type="Script" path="res://Code/Views/GoToNextScene.gd" id="8_tyoa7"]
 [ext_resource type="AudioStream" uid="uid://6xyplbx3kl27" path="res://Assets/SFX/ShopEnter.wav" id="9_elsiv"]
