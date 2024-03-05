@@ -31,5 +31,10 @@ namespace Models
         {
             return 0;
         }
+
+        public bool IsNull()
+        {
+            return Name.Equals(Item.Null().Name);
+        }
     }
 }

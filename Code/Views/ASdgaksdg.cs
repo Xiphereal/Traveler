@@ -81,7 +81,7 @@ public partial class ASdgaksdg : Control
     {
         var targetItem = (ASdgaksdg)data;
 
-        if (Traveler().Carries(targetItem.Item))
+        if (Traveler().Carries(targetItem.Item) || targetItem.Item.IsNull())
         {
             GetChildren().OfType<AudioStreamPlayer>().Single()
                 .Play("res://Assets/SFX/DropItem.wav");
