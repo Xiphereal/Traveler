@@ -75,7 +75,6 @@ autoplay = "wandering"
 wait_time = 6.0
 autostart = true
 script = ExtResource("1_oi27f")
-pathToNextScene = "res://Scenes/preparation.tscn"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_037j8")

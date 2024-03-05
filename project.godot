@@ -18,6 +18,7 @@ config/icon="res://Assets/Traveler.png"
 [autoload]
 
 Persistence="*res://Code/Views/Persistence.cs"
+Roadmap="*res://Code/Views/Roadmap.cs"
 
 [dotnet]
 
