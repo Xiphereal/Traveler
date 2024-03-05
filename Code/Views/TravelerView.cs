@@ -35,7 +35,6 @@ public partial class TravelerView : Control
     {
         ownedItems = new Array<Texture2D>(
             persistence.OwnedItems.Select(item => item.ToTexture()));
-        persistence.OwnedItems.ForEach(item => Traveler.Owns(item));
 
         Traveler.Coins = persistence.Coins;
     }
