@@ -5,7 +5,6 @@ namespace Models.Tests;
 
 public class RoadmapTests
 {
-    // que devuelva las paradas en forma de nombres de escenas
     // y la parametrización de que?
 
     [Fact]

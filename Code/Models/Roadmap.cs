@@ -12,6 +12,7 @@ namespace Models
             "travelling",
             "preparation",
             "travelling",
+            "end"
         };
 
         private int stop = 0;
