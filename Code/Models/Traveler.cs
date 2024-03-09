@@ -40,5 +40,11 @@ namespace Models
         public bool Carries(Item item) => backpack.Contains(item);
 
         public void Owns(Item item) => backpack.Add(item);
+
+        public void Travel()
+        {
+            backpack.RemoveWhere(item =>
+                item.Name == Item.Water().Name || item.Name == Item.Food().Name);
+        }
     }
 }
