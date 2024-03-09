@@ -64,7 +64,7 @@ layout_mode = 2
 [node name="Text" type="Label" parent="Panel/PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(1, 1, 1, 0.34)
+theme_override_colors/font_color = Color(1, 1, 1, 0)
 text = "Is it... the end?
 
 Was it worth it, anyway?"

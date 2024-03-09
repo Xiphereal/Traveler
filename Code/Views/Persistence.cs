@@ -18,4 +18,12 @@ public partial class Persistence : Node
         OwnedItems = traveler.backpack.ToList();
         Coins = traveler.Coins;
     }
+
+    public Models.Traveler RetrieveTraveler()
+    {
+        var traveler = new Models.Traveler(Coins);
+        OwnedItems.ForEach(i => traveler.Owns(i));
+
+        return traveler;
+    }
 }

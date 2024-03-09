@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bi6c2mnp4nnqi"]
+[gd_scene load_steps=7 format=3 uid="uid://bi6c2mnp4nnqi"]
 
 [ext_resource type="Script" path="res://Code/Views/GoToNextScene.gd" id="1_oi27f"]
 [ext_resource type="AudioStream" uid="uid://dxvwb4wiv7h4c" path="res://Assets/SFX/AmbienceForestWind.wav" id="2_037j8"]
+[ext_resource type="Script" path="res://Code/Views/Journey.cs" id="3_xwg6n"]
 
 [sub_resource type="Animation" id="Animation_6r2k1"]
 length = 0.001
@@ -81,4 +82,8 @@ stream = ExtResource("2_037j8")
 volume_db = -12.654
 autoplay = true
 
+[node name="Journey" type="Node" parent="."]
+script = ExtResource("3_xwg6n")
+
 [connection signal="timeout" from="Timer" to="Timer" method="_go_to_next_scene"]
+[connection signal="timeout" from="Timer" to="Journey" method="Travel"]
