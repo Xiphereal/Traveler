@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Models
 {
@@ -39,7 +40,17 @@ namespace Models
 
         public bool Carries(Item item) => backpack.Contains(item);
 
-        public void Owns(Item item) => backpack.Add(item);
+        public void Owns(Item item)
+        {
+            if (item.Equals(Item.Delivery())
+                && backpack.Contains(item))
+            {
+                throw new ArgumentException("Todavía no se soporta que " +
+                    "hayan más de 1 Delivery simultáneo");
+            }
+
+            backpack.Add(item);
+        }
 
         public void Travel()
         {

@@ -20,9 +20,15 @@ namespace Models
         public static Item Food() => new("Food") { Cost = 3 };
         public static Item Map() => new("Map");
         public static Item CostlyOne() => new("CostlyOne") { Cost = 99999999 };
+        public static Item Delivery() => new("Delivery");
 
         public override bool Equals(object obj)
         {
+            if (obj is Item asdfa
+                && asdfa.Name.Equals(Item.Delivery().Name)
+                && asdfa.Name.Equals(Name))
+                return true;
+
             return obj is Item item &&
                 id.Equals(item.id);
         }
