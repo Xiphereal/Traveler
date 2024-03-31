@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://b07d58fxc2nkj"]
+[gd_scene load_steps=3 format=3 uid="uid://b07d58fxc2nkj"]
+
+[ext_resource type="Script" path="res://Code/Views/GoToNextScene.gd" id="1_udypg"]
+[ext_resource type="Script" path="res://Code/Views/Villager.cs" id="2_u2ple"]
 
 [node name="Request" type="CanvasLayer"]
 
@@ -8,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_udypg")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
@@ -32,26 +36,31 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer"]
+[node name="Decision" type="VBoxContainer" parent="Panel/VBoxContainer"]
 layout_mode = 2
+script = ExtResource("2_u2ple")
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Decision"]
 layout_mode = 2
 text = "What is your decision?
 
 "
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/Decision"]
 layout_mode = 2
 alignment = 1
 
-[node name="Yes" type="Button" parent="Panel/VBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="Yes" type="Button" parent="Panel/VBoxContainer/Decision/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Yes"
 
-[node name="No" type="Button" parent="Panel/VBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="No" type="Button" parent="Panel/VBoxContainer/Decision/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "No"
+
+[connection signal="pressed" from="Panel/VBoxContainer/Decision/HBoxContainer/Yes" to="Panel" method="_go_to_next_scene"]
+[connection signal="pressed" from="Panel/VBoxContainer/Decision/HBoxContainer/Yes" to="Panel/VBoxContainer/Decision" method="GiveDelivery"]
+[connection signal="pressed" from="Panel/VBoxContainer/Decision/HBoxContainer/No" to="Panel" method="_go_to_next_scene"]

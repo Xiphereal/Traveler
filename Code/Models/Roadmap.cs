@@ -12,6 +12,7 @@ namespace Models
             "travelling",
             "preparation",
             "travelling",
+            "request",
             "end"
         };
 
