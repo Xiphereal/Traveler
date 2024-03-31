@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bi6c2mnp4nnqi"]
+[gd_scene load_steps=10 format=3 uid="uid://bi6c2mnp4nnqi"]
 
 [ext_resource type="Script" path="res://Code/Views/GoToNextScene.gd" id="1_oi27f"]
 [ext_resource type="AudioStream" uid="uid://dxvwb4wiv7h4c" path="res://Assets/SFX/AmbienceForestWind.wav" id="2_037j8"]
@@ -42,6 +42,43 @@ _data = {
 "wandering": SubResource("Animation_1nk4m")
 }
 
+[sub_resource type="Animation" id="Animation_sf7m0"]
+resource_name = "fade_in"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_isysl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hnafd"]
+_data = {
+"RESET": SubResource("Animation_isysl"),
+"fade_in": SubResource("Animation_sf7m0")
+}
+
 [node name="Traveling" type="CanvasLayer"]
 
 [node name="Panel" type="Panel" parent="."]
@@ -51,7 +88,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="Wandering" type="Label" parent="Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -66,11 +103,34 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Wandering..."
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/Label"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/Wandering"]
 libraries = {
 "": SubResource("AnimationLibrary_skal4")
 }
 autoplay = "wandering"
+
+[node name="SuppliesAreConsumed" type="Label" parent="Panel"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = 44.0
+offset_right = 46.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Hunger and thirst hits you"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/SuppliesAreConsumed"]
+libraries = {
+"": SubResource("AnimationLibrary_hnafd")
+}
+autoplay = "fade_in"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 6.0
