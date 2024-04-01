@@ -81,7 +81,7 @@ public partial class ASdgaksdg : Control
     {
         var targetSlot = (ASdgaksdg)data;
 
-        if (Traveler().Carries(targetSlot.Item) || targetSlot.Item.IsNull())
+        if (Traveler().Carries(targetSlot.Item) || !targetSlot.HasItem())
         {
             GetChildren().OfType<AudioStreamPlayer>().Single()
                 .Play("res://Assets/SFX/DropItem.wav");
@@ -94,6 +94,11 @@ public partial class ASdgaksdg : Control
         }
 
         SwapItemWith(targetSlot);
+    }
+
+    public bool HasItem()
+    {
+        return !Item.IsNull();
     }
 
     private void SwapItemWith(ASdgaksdg other)
