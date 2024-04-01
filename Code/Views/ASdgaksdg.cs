@@ -79,21 +79,21 @@ public partial class ASdgaksdg : Control
 
     public override void _DropData(Vector2 atPosition, Variant data)
     {
-        var targetItem = (ASdgaksdg)data;
+        var targetSlot = (ASdgaksdg)data;
 
-        if (Traveler().Carries(targetItem.Item) || targetItem.Item.IsNull())
+        if (Traveler().Carries(targetSlot.Item) || targetSlot.Item.IsNull())
         {
             GetChildren().OfType<AudioStreamPlayer>().Single()
                 .Play("res://Assets/SFX/DropItem.wav");
         }
         else
         {
-            Traveler().Buy(targetItem.Item);
+            Traveler().Buy(targetSlot.Item);
             GetChildren().OfType<AudioStreamPlayer>().Single()
                 .Play("res://Assets/SFX/CoinsRattle.wav");
         }
 
-        SwapItemWith(targetItem);
+        SwapItemWith(targetSlot);
     }
 
     private void SwapItemWith(ASdgaksdg other)
