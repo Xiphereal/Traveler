@@ -68,9 +68,9 @@ public partial class ASdgaksdg : Control
 
     public override bool _CanDropData(Vector2 atPosition, Variant data)
     {
-        var targetItem = (ASdgaksdg)data;
+        var targetSlot = (ASdgaksdg)data;
 
-        return !targetItem.Item.Equals(Item)
+        return !targetSlot.Item.Equals(Item)
             && (Traveler().Carries(Item) || Traveler().CanAfford(Item));
     }
 
