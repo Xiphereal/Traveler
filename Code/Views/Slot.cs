@@ -7,7 +7,7 @@ using static Godot.TextureRect;
 
 namespace Views;
 
-public partial class ASdgaksdg : Control
+public partial class Slot : Control
 {
     [Export]
     private Supply supply;
@@ -17,7 +17,7 @@ public partial class ASdgaksdg : Control
     internal TextureRect textureRect;
 
     [Signal]
-    public delegate void ItemAppearedEventHandler(ASdgaksdg item);
+    public delegate void ItemAppearedEventHandler(Slot item);
 
     public Models.Item Item { get; internal set; }
 
@@ -68,7 +68,7 @@ public partial class ASdgaksdg : Control
 
     public override bool _CanDropData(Vector2 atPosition, Variant data)
     {
-        var targetSlot = (ASdgaksdg)data;
+        var targetSlot = (Slot)data;
 
         return !targetSlot.Item.Equals(Item)
             && (Traveler().Carries(Item) || Traveler().CanAfford(Item));
@@ -79,7 +79,7 @@ public partial class ASdgaksdg : Control
 
     public override void _DropData(Vector2 atPosition, Variant data)
     {
-        var targetSlot = (ASdgaksdg)data;
+        var targetSlot = (Slot)data;
 
         if (Traveler().Carries(targetSlot.Item) || !targetSlot.HasItem())
         {
@@ -101,7 +101,7 @@ public partial class ASdgaksdg : Control
         return !Item.IsNull();
     }
 
-    private void SwapItemWith(ASdgaksdg other)
+    private void SwapItemWith(Slot other)
     {
         (other.textureRect.Texture, textureRect.Texture) =
             (textureRect.Texture, other.textureRect.Texture);

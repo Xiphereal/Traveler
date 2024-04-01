@@ -45,7 +45,7 @@ public partial class TravelerView : Control
 
         var backpack = GetAllDescendantsOf(this).OfType<GridContainer>().Single();
         backpack.GetChildren()
-            .OfType<ASdgaksdg>().ElementAt(at)
+            .OfType<Slot>().ElementAt(at)
             .textureRect.Texture = item;
     }
 
@@ -67,7 +67,7 @@ public partial class TravelerView : Control
         GetNode<Label>("%TravelerCoins").Text = Traveler.Coins.ToString();
     }
 
-    public void OnSlotReady(ASdgaksdg item)
+    public void OnSlotReady(Slot item)
     {
         Traveler.Owns(item.Item);
     }
