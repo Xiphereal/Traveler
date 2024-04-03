@@ -67,9 +67,9 @@ public partial class TravelerView : Control
         GetNode<Label>("%TravelerCoins").Text = Traveler.Coins.ToString();
     }
 
-    public void OnSlotReady(Slot item)
+    public void OnSlotReady(Slot slot)
     {
-        Traveler.Owns(item.Item);
+        Traveler.Owns(slot.Item);
     }
 
     public override void _ExitTree()
