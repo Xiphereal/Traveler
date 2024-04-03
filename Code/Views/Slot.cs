@@ -16,9 +16,6 @@ public partial class Slot : Control
     private Texture2D itemDefinedInEditor;
     internal TextureRect textureRect;
 
-    [Signal]
-    public delegate void ItemAppearedEventHandler(Slot item);
-
     public Models.Item Item { get; internal set; }
 
     public override void _Ready()
