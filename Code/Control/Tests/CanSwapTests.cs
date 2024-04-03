@@ -29,4 +29,14 @@ public class CanSwapTests
 
         sut.CanSwap(anOwnedItem, Item.Null()).Should().BeTrue();
     }
+
+    [Fact]
+    public void Non_owned_but_affordable_items_are_swappable()
+    {
+        Item affordable = Item.Water();
+        var traveler = new Traveler(startingWith: affordable.Cost);
+        var sut = new Asdflasjdhf(traveler);
+
+        sut.CanSwap(affordable, Item.Null()).Should().BeTrue();
+    }
 }
