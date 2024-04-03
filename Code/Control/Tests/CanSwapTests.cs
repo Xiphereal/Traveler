@@ -17,6 +17,7 @@ public class CanSwapTests
         var sut = new Asdflasjdhf(traveler);
 
         sut.CanSwap(anOwnedItem, anotherOwnedItem).Should().BeTrue();
+        sut.CanSwap(anotherOwnedItem, anOwnedItem).Should().BeTrue();
     }
 
     [Fact]
@@ -28,6 +29,7 @@ public class CanSwapTests
         var sut = new Asdflasjdhf(traveler);
 
         sut.CanSwap(anOwnedItem, Item.Null()).Should().BeTrue();
+        sut.CanSwap(Item.Null(), anOwnedItem).Should().BeTrue();
     }
 
     [Fact]
@@ -38,6 +40,7 @@ public class CanSwapTests
         var sut = new Asdflasjdhf(traveler);
 
         sut.CanSwap(affordable, Item.Null()).Should().BeTrue();
+        sut.CanSwap(Item.Null(), affordable).Should().BeTrue();
     }
 
     [Fact]
