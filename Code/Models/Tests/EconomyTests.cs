@@ -120,5 +120,21 @@ namespace Models.Tests
             Item.Water()
                 .Should().NotBe(Item.Water());
         }
+
+        [Fact]
+        public void Traveler_always_carries_null_items()
+        {
+            var sut = new Traveler();
+
+            sut.Carries(Item.Null()).Should().BeTrue();
+        }
+
+        [Fact]
+        public void Traveler_cannot_afford_null_items()
+        {
+            var sut = new Traveler(startingWith: 9999);
+
+            sut.CanAfford(Item.Null()).Should().BeFalse();
+        }
     }
 }

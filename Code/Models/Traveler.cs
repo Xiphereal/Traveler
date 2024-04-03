@@ -35,10 +35,16 @@ namespace Models
 
         public bool CanAfford(Item item)
         {
+            if (item.IsNull())
+                return false;
+
             return item.Cost <= Coins;
         }
 
-        public bool Carries(Item item) => backpack.Contains(item);
+        public bool Carries(Item item)
+        {
+            return item.IsNull() || backpack.Contains(item);
+        }
 
         public void Owns(Item item)
         {

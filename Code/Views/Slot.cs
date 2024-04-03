@@ -68,7 +68,8 @@ public partial class Slot : Control
         var targetSlot = (Slot)data;
 
         return !targetSlot.Item.Equals(Item)
-            && (Traveler().Carries(Item) || Traveler().CanAfford(Item));
+            && ((Traveler().Carries(Item) && Traveler().Carries(targetSlot.Item))
+                || (Traveler().CanAfford(Item) || Traveler().CanAfford(targetSlot.Item)));
     }
 
     private Traveler Traveler() =>
