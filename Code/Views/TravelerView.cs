@@ -7,7 +7,7 @@ using Views.Extensions;
 
 namespace Views;
 
-public partial class TravelerView : Control
+public partial class TravelerView : Godot.Control
 {
     [Export(PropertyHint.Range, "0, 99")]
     private int startingWith = 6;
