@@ -4,7 +4,7 @@ namespace Control;
 
 public class Asdflasjdhf
 {
-    private Traveler traveler;
+    private readonly Traveler traveler;
 
     public Asdflasjdhf(Traveler traveler)
     {
