@@ -13,7 +13,9 @@ public class Asdflasjdhf
 
     public bool CanSwap(Item left, Item rigth)
     {
-        return ((traveler.Carries(left) && traveler.Carries(rigth))
-            || (traveler.CanAfford(left) || traveler.CanAfford(rigth)));
+        bool canCarry = traveler.Carries(left) && traveler.Carries(rigth);
+        bool canAfford = traveler.CanAfford(left) || traveler.CanAfford(rigth);
+
+        return canCarry || canAfford;
     }
 }
