@@ -18,4 +18,15 @@ public class CanSwapTests
 
         sut.CanSwap(anOwnedItem, anotherOwnedItem).Should().BeTrue();
     }
+
+    [Fact]
+    public void Null_items_are_swappable()
+    {
+        var traveler = new Traveler();
+        var anOwnedItem = Item.Water();
+        traveler.Owns(anOwnedItem);
+        var sut = new Asdflasjdhf(traveler);
+
+        sut.CanSwap(anOwnedItem, Item.Null()).Should().BeTrue();
+    }
 }
