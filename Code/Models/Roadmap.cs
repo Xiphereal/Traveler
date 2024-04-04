@@ -13,6 +13,8 @@ namespace Models
             "preparation",
             "travelling",
             "request",
+            "preparation",
+            "travelling",
             "end"
         };
 

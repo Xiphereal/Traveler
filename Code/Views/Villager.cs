@@ -6,7 +6,9 @@ public partial class Villager : Node
 {
     public void GiveDelivery()
     {
-        Models.Villager.GiveDelivery(to: Persistence().RetrieveTraveler());
+        Models.Traveler traveler = Persistence().RetrieveTraveler();
+        Models.Villager.GiveDelivery(to: traveler);
+        Persistence().Persist(traveler);
     }
 
     private Persistence Persistence() =>
