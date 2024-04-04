@@ -39,4 +39,11 @@ public class RoadmapTests
         sut.AddStop("any");
         sut.LastStop().Should().Be("any");
     }
+
+    [Fact]
+    public void Last_stop_is_always_the_end()
+    {
+        var sut = new Roadmap();
+        sut.LastStop().Should().Be("end");
+    }
 }
