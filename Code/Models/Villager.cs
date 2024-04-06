@@ -6,5 +6,10 @@
         {
             to.Owns(Item.Delivery());
         }
+
+        public static void AcceptDelivery(Traveler from)
+        {
+            from.Deliver();
+        }
     }
 }

@@ -14,5 +14,16 @@ namespace Models.Tests
 
             traveler.Carries(Item.Delivery()).Should().BeTrue();
         }
+
+        [Fact]
+        public void Villagers_accept_deliveries_from_traveler()
+        {
+            var traveler = new Traveler();
+            Villager.GiveDelivery(to: traveler);
+
+            Villager.AcceptDelivery(from: traveler);
+
+            traveler.Carries(Item.Delivery()).Should().BeFalse();
+        }
     }
 }

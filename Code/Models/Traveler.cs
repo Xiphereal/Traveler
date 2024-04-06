@@ -63,5 +63,11 @@ namespace Models
             backpack.RemoveWhere(item =>
                 item.Name == Item.Water().Name || item.Name == Item.Food().Name);
         }
+
+        public void Deliver()
+        {
+            backpack.RemoveWhere(item =>
+                item.Equals(Item.Delivery()));
+        }
     }
 }
