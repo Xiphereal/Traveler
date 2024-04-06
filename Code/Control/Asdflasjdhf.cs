@@ -18,4 +18,11 @@ public class Asdflasjdhf
 
         return canCarry || canAfford;
     }
+
+    public string DoYouHaveSomethingToDeliver()
+    {
+        return traveler.Carries(Item.Delivery())
+            ? "... and you hand the villager the delivery."
+            : "... but you find nothing.";
+    }
 }
