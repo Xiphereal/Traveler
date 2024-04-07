@@ -4,13 +4,13 @@ using Xunit;
 
 namespace Control.Tests;
 
-public class ASDFasfTests
+public class NarratorTests
 {
     [Fact]
     public void Has_nothing_to_deliver()
     {
         var traveler = new Traveler();
-        var sut = new Asdflasjdhf(traveler);
+        var sut = new Narrator(traveler);
 
         sut.DoYouHaveSomethingToDeliver()
             .Should().Be("... but you find nothing.");
@@ -21,7 +21,7 @@ public class ASDFasfTests
     {
         var traveler = new Traveler();
         traveler.Owns(Item.Delivery());
-        var sut = new Asdflasjdhf(traveler);
+        var sut = new Narrator(traveler);
 
         sut.DoYouHaveSomethingToDeliver()
             .Should().Be(
