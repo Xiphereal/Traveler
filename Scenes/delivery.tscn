@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5jvhxbq1ekmg"]
+[gd_scene load_steps=3 format=3 uid="uid://15fv6ebidloy"]
 
 [ext_resource type="Script" path="res://Code/Views/GoToNextScene.gd" id="1_xpbyy"]
 [ext_resource type="Script" path="res://Code/Views/Villager.cs" id="2_8gayk"]
@@ -29,7 +29,7 @@ grow_vertical = 2
 layout_mode = 2
 text = "A villager approaches.
 
-\"Do you have something for me\""
+\"Do you have something for me?\""
 horizontal_alignment = 1
 
 [node name="spacer" type="Control" parent="Panel/VBoxContainer"]
@@ -51,3 +51,10 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "askdjgaskldgn"
 horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="Panel/VBoxContainer/Villager"]
+wait_time = 0.001
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Panel/VBoxContainer/Villager/Timer" to="Panel/VBoxContainer/Villager" method="AskForDelivery"]

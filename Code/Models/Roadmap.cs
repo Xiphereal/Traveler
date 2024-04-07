@@ -15,6 +15,7 @@ namespace Models
             "request",
             "preparation",
             "travelling",
+            "delivery",
             "end"
         };
 
