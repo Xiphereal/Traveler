@@ -1,0 +1,2 @@
+- Indicate when no food or water is prepared for traveling.
+- Full inventory at request
