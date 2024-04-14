@@ -19,7 +19,6 @@ public partial class Villager : Node
         GetNode<Label>("Result").Text =
             new Narrator(traveler).DoYouHaveSomethingToDeliver();
 
-        Models.Villager.AcceptDelivery(from: traveler);
         Persistence().Persist(traveler);
     }
 

@@ -20,7 +20,7 @@ namespace Models
         public static Item Food() => new("Food") { Cost = 3 };
         public static Item Map() => new("Map");
         public static Item CostlyOne() => new("CostlyOne") { Cost = 99999999 };
-        public static Item Delivery() => new("Delivery");
+        public static Item Delivery() => new("Delivery") { Cost = 6 };
 
         public override bool Equals(object obj)
         {

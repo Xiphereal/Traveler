@@ -68,6 +68,8 @@ namespace Models
         {
             backpack.RemoveWhere(item =>
                 item.Equals(Item.Delivery()));
+
+            Coins += Item.Delivery().Cost;
         }
     }
 }

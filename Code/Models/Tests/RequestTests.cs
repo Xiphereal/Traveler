@@ -18,12 +18,14 @@ namespace Models.Tests
         [Fact]
         public void Villagers_accept_deliveries_from_traveler()
         {
-            var traveler = new Traveler();
+            var initialCoins = 0;
+            var traveler = new Traveler(startingWith: initialCoins);
             Villager.GiveDelivery(to: traveler);
 
             Villager.AcceptDelivery(from: traveler);
 
             traveler.Carries(Item.Delivery()).Should().BeFalse();
+            traveler.Coins.Should().BeGreaterThan(initialCoins);
         }
     }
 }
